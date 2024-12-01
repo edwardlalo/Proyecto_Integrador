@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros</title>
+  <!-- Enlace a Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link rel="stylesheet" href="CSS/StylesNosotros.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<header>
+    <nav class="navbar">
+      <div class="menu-toggle" id="menuToggle" style="margin-left: 20px;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li style="margin-left: -30px;"><a href="inicio" >Inicio</a></li>
+        <!-- Condición para mostrar el enlace de reserva o una alerta -->
+      <li style="margin-left: -30px;">
+        <a href="reservaMesas">Realizar reserva</a> <!-- Redirecciona si hay usuario en sesion -->
+      </li>
+      <li style="margin-left: -30px;"><a href="contactanos">Contactanos</a></li>
+      <li style="margin-left: -30px;"><a href="nosotros">Nosotros</a></li>
+      </ul>
+      <div class="logo">
+        <a href="#">
+          <img src="Imagenes/LogotipoX.png" alt="Logo" />
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar..." />
+      </div>
+      <div class="auth-buttons">
+        <!-- Comprobar si hay un usuario en la sesión -->
+        <div th:if="${usuario != null}">
+          <span th:text="'Hola, ' + ${usuario.nombre}"></span> <!-- Muestra el nombre del usuario -->
+          <a href="/logout" class="btn logout">Cerrar Sesión</a> <!-- Botón de cerrar sesión -->
+        </div>
+        <div th:if="${usuario == null}">
+          <a href="login" class="btn login">Iniciar Sesión</a> <!-- Botón de iniciar sesión -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<body>
+  <section class="about-section">
+    <div class="container">
+        <h2 class="about-title">Sobre Nosotros</h2>
+    
+        <div class="row">
+          <!-- Historia -->
+          <div class="col-lg-6 mb-4">
+            <h3 class="section-title">Nuestra Historia</h3>
+            <div class="divider"></div>
+            <p>
+                Chifa Loto de Jade es un restaurante especializado en fusionar las tradiciones culinarias china y peruana desde el año 2003. Con un enfoque en la calidad y la autenticidad, se ha consolidado como una opción preferida para los amantes de la buena comida, ofreciendo una experiencia gastronómica única en un ambiente acogedor
+            </p>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="image-container">
+              <img src="Imagenes/historiaChifa.avif" alt="Historia" class="about-img">
+              <span class="image-caption">Historia de excelencia</span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Misión -->
+          <div class="col-lg-6 mb-4">
+            <div class="image-container">
+              <img src="Imagenes/misionchifa.jpg" alt="Misión" class="about-img">
+              <span class="image-caption">Inspirando con nuestra misión</span>
+
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <h3 class="section-title">Nuestra Misión</h3>
+            <div class="divider"></div>
+
+            <p>
+                Ofrecer una experiencia gastronómica única que fusiona lo mejor de las cocinas china y peruana, comprometidos con la calidad, la autenticidad y un servicio excepcional. Nos esforzamos por deleitar a nuestros clientes con platos innovadores en un ambiente acogedor, mientras mantenemos nuestras raíces culturales y promovemos el respeto por la tradición culinaria. 
+            </p>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Visión -->
+          <div class="col-lg-6 mb-4">
+            <h3 class="section-title">Nuestra Visión</h3>
+            <div class="divider"></div>
+
+            <p>
+                Ser el restaurante líder en la fusión de las tradiciones culinarias china y peruana en todo Perú, reconocido por nuestra excelencia en la gastronomía y nuestro compromiso con la innovación. Aspiramos a expandir nuestra marca, convirtiéndonos en un referente de calidad y experiencia gastronómica en el mercado local y más allá. 
+            </p>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="image-container">
+              <img src="Imagenes/visionchifa.avif" alt="Visión" class="about-img">
+              <span class="image-caption">Nuestra meta a futuro</span>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <!-- Valores -->
+        <div class="row mt-5">
+            <h3 class="section-title text-center mb-4">Nuestros Valores</h3>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                  <i class="fas fa-utensils fa-3x text-danger mb-3"></i>
+                  <h5 class="card-title">Pasión por la Gastronomía</h5>
+                  <p class="card-text">Preparamos cada platillo con dedicación, combinando lo mejor de la cocina china y peruana.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                  <i class="fas fa-handshake fa-3x text-success mb-3"></i>
+                  <h5 class="card-title">Hospitalidad</h5>
+                  <p class="card-text">Ofrecemos un servicio cálido y amigable para que cada cliente se sienta como en casa.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                  <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+                  <h5 class="card-title">Frescura y Calidad</h5>
+                  <p class="card-text">Seleccionamos los ingredientes más frescos para garantizar una experiencia culinaria única.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card shadow border-0 text-center h-100">
+                <div class="card-body">
+                  <i class="fas fa-globe fa-3x text-warning mb-3"></i>
+                  <h5 class="card-title">Fusión Cultural</h5>
+                  <p class="card-text">Celebramos la unión de dos culturas, creando sabores que cuentan historias.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </section>
+  <footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="#">
+                    <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>
+                En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china 
+                y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.
+            </p>
+        </div>
+        <div class="box">
+            <h2>SÍGUENOS</h2>
+            <div class="red-social">
+                <a href="#" class="bx bxl-facebook"></a>
+                <a href="#" class="bx bxl-instagram"></a>
+                <a href="#" class="bx bxl-twitter"></a>
+                <a href="#" class="bx bxl-youtube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small>
+    </div>
+</footer>
+
+  <!-- Enlace a Bootstrap JS y Font Awesome -->
+  <script src="JS/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
